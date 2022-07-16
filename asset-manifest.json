@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/dapp-useDApp-project/static/css/main.68a12fab.css",
-    "main.js": "/dapp-useDApp-project/static/js/main.7cdf6230.js",
+    "main.css": "/dapp-useDApp-project/static/css/main.78f138ac.css",
+    "main.js": "/dapp-useDApp-project/static/js/main.00bd3a5c.js",
     "static/js/787.fdff3cee.chunk.js": "/dapp-useDApp-project/static/js/787.fdff3cee.chunk.js",
     "index.html": "/dapp-useDApp-project/index.html",
-    "main.68a12fab.css.map": "/dapp-useDApp-project/static/css/main.68a12fab.css.map",
-    "main.7cdf6230.js.map": "/dapp-useDApp-project/static/js/main.7cdf6230.js.map",
+    "main.78f138ac.css.map": "/dapp-useDApp-project/static/css/main.78f138ac.css.map",
+    "main.00bd3a5c.js.map": "/dapp-useDApp-project/static/js/main.00bd3a5c.js.map",
     "787.fdff3cee.chunk.js.map": "/dapp-useDApp-project/static/js/787.fdff3cee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.68a12fab.css",
-    "static/js/main.7cdf6230.js"
+    "static/css/main.78f138ac.css",
+    "static/js/main.00bd3a5c.js"
   ]
 }
