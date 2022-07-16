@@ -1,9 +1,11 @@
+import { useEthers } from "@usedapp/core";
 
+import Wallet from "./components/Wallet";
 
 function App() {
   return (
     <div className="App">
-      <h1>a</h1>
+      <Wallet/>
     </div>
   );
 }
