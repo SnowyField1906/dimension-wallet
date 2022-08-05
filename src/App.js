@@ -1,11 +1,9 @@
-import { useEthers } from "@usedapp/core";
-
-import Wallet from "./components/Wallet";
+import Wallet from "./containers/Wallet";
 
 function App() {
   return (
-    <div className="App">
-      <Wallet/>
+    <div className="h-screen bg-screen bg-cover bg-center">
+      <Wallet />
     </div>
   );
 }
