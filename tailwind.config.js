@@ -3,9 +3,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'screen': "url('../public/img/screen.jpg')",
-        'card': "url('../public/img/card.jpg')",
-        'ethereum-icon': "url('../public/img/ethereum-icon.png')",
+        'screen': "url('../src/images/screen.jpg')",
+        'card': "url('../src/images/card.jpg')",
+        'ethereum-icon': "url('../src/images/ethereum-icon.png')",
       }
     },
   },

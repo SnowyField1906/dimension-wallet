@@ -8,7 +8,7 @@ function Balance(props) {
         )
     }
     else {
-        return <p className='text-white font-semibold text-xl'>choose network</p>
+        return <p className='text-white font-semibold text-xl'>Choose network</p>
     }
 }
 
