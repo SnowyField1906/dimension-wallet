@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-
+// import { Link, Routes,Navigate } from 'react-router-dom';
 import { useEthers, useEtherBalance, Mainnet, Kovan, Ropsten, Rinkeby, Goerli } from "@usedapp/core";
 
 import Account from '../components/Wallet/AccountAddress';
@@ -7,9 +7,12 @@ import NetworkMenu from '../components/Wallet/NetworkMenu';
 import Balance from '../components/Wallet/Balance';
 import Card from '../components/Wallet/Card';
 
-
 function Wallet() {
     const { deactivate, account } = useEthers();
+
+    // if (account) {
+    //     return (<Navigate to="/">)
+    // }
 
     var balance = {
         'Mainnet': useEtherBalance(account, { chainId: Mainnet.chainId }),
@@ -21,7 +24,15 @@ function Wallet() {
 
     const [network, setNetwork] = useState(null);
 
+    // let navigate = useNavigate();
+    // const routeChange = () => {
+    //     deactivate();
+    //     navigate('/');
+    // }
+
     return (
+        
+
         <div class="grid gap-8 items-start justify-center">
             {/* <div class="relative group">
                         <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
@@ -49,9 +60,9 @@ function Wallet() {
                     </div> */}
 
             <Card account={account} balance={balance} network={network} />
+                <button onClick={deactivate}
+                    className='rounded-2xl bg-red-600 hover:bg-red-800 px-4 py-3 m-2 text-white text-2xl font-semibold'>Disconnect</button>
 
-            <button onClick={deactivate}
-                className='rounded-2xl bg-red-600 hover:bg-red-800 px-4 py-3 m-2 text-white text-2xl font-semibold'>Disconnect</button>
         </div >
     )
 }

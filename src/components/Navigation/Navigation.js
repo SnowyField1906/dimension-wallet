@@ -1,6 +1,5 @@
 import { NavLink, Link } from 'react-router-dom';
 
-
 function Navigation() {
     return (
         <nav class="mt-[0px] fixed w-full inset-x-0 top-0' bg-gradient-to-r from-blue-600 to-purple-600">
@@ -17,9 +16,9 @@ function Navigation() {
 
                     <div class="lg:place-content-around ml-auto">
                             <NavLink to="/Wallet" className={({ isActive }) =>
-                                isActive ? 'navActiveButton' : 'navUnactiveButton'}>Your Wallet</NavLink>
+                                isActive ? ' ' : ' first-line:'}>Your Wallet</NavLink>
                             <NavLink to="/Transaction" className={({ isActive }) =>
-                                isActive ? 'navActiveButton' : 'navUnactiveButton'}>Transaction</NavLink>
+                                isActive ? ' ' : ' '}>Transaction</NavLink>
                     </div>
 
                     <div class="flex ml-auto navTopRightElementsL">
