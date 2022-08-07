@@ -10,9 +10,6 @@ import Card from '../components/Wallet/Card';
 function Wallet() {
     const { deactivate, account } = useEthers();
 
-    // if (account) {
-    //     return (<Navigate to="/">)
-    // }
 
     var balance = {
         'Mainnet': useEtherBalance(account, { chainId: Mainnet.chainId }),
@@ -24,16 +21,16 @@ function Wallet() {
 
     const [network, setNetwork] = useState(null);
 
-    // let navigate = useNavigate();
-    // const routeChange = () => {
-    //     deactivate();
-    //     navigate('/');
-    // }
-
+    const routeChange = () => {
+        deactivate();
+        return (
+            <Navigate to="/dApp-useDApp-project/" />
+        )
+    }
     
     if (!account) {
         return (
-            <Navigate to="dApp-useDApp-project/" />
+            <Navigate to="/dApp-useDApp-project/" />
         )
     }
 
@@ -67,7 +64,7 @@ function Wallet() {
                     </div> */}
 
             <Card account={account} balance={balance} network={network} />
-                <button onClick={deactivate}
+                <button onClick={routeChange}
                     className='rounded-2xl bg-red-600 hover:bg-red-800 px-4 py-3 m-2 text-white text-2xl font-semibold'>Disconnect</button>
 
         </div >

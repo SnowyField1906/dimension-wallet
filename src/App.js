@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="h-screen bg-screen bg-cover bg-center">
-      <Router>
+      <Router >
         <Navigation />
         <Routes>
           <Route path="dApp-useDApp-project/" exact element={<Welcome />} />
