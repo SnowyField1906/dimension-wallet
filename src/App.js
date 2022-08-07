@@ -13,9 +13,9 @@ function App() {
       <Router>
         <Navigation />
         <Routes>
-          <Route path="/" exact element={<Welcome />} />
-          <Route path='/Wallet' element={<Wallet />} />
-          <Route path='/Transaction' element={<Transaction />} />
+          <Route path="dApp-useDApp-project/" exact element={<Welcome />} />
+          <Route path='dApp-useDApp-project/Wallet' element={<Wallet />} />
+          <Route path='dApp-useDApp-project/Transaction' element={<Transaction />} />
         </Routes>
       </Router>
 

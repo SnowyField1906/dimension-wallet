@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-// import { Link, Routes,Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useEthers, useEtherBalance, Mainnet, Kovan, Ropsten, Rinkeby, Goerli } from "@usedapp/core";
 
 import Account from '../components/Wallet/AccountAddress';
@@ -29,6 +29,13 @@ function Wallet() {
     //     deactivate();
     //     navigate('/');
     // }
+
+    
+    if (!account) {
+        return (
+            <Navigate to="dApp-useDApp-project/" />
+        )
+    }
 
     return (
         

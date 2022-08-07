@@ -8,7 +8,7 @@ function Welcome() {
 
     if (account) {
         return (
-            <Navigate to="/Wallet" />
+            <Navigate to="Wallet" />
         )
     }
 

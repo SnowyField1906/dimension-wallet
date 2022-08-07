@@ -7,7 +7,7 @@ function Navigation() {
                 <div class="flex items-center md:div">
                     <div class="text-right pb-1 md:flex md:items-end">
                         <div>
-                            <Link to='/' class="dm:textLogo1 md:textLogo1L">ETHEREUM</Link>
+                            <Link to='dApp-useDApp-project/' class="dm:textLogo1 md:textLogo1L">ETHEREUM</Link>
                         </div>
                         <div>
                             <a href="http://facebook.com/trantieuvann" target="_blank" class="dm:textLogo2 md:textLogo2L">.SnowyField</a>
@@ -15,9 +15,9 @@ function Navigation() {
                     </div>
 
                     <div class="lg:place-content-around ml-auto">
-                            <NavLink to="/Wallet" className={({ isActive }) =>
+                            <NavLink to="dApp-useDApp-project/Wallet" className={({ isActive }) =>
                                 isActive ? ' ' : ' first-line:'}>Your Wallet</NavLink>
-                            <NavLink to="/Transaction" className={({ isActive }) =>
+                            <NavLink to="dApp-useDApp-project/Transaction" className={({ isActive }) =>
                                 isActive ? ' ' : ' '}>Transaction</NavLink>
                     </div>
 
