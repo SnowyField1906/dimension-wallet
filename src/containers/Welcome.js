@@ -30,7 +30,7 @@ function Welcome() {
                     </button>
 
                 </div>
-                <div className='w-[40%] h-full absolute bottom-[-20%] right-5 bg-welcome-image-2 bg-contain bg-center bg-no-repeat'>
+                <div className='w-[40%] h-[60%] absolute bottom-0 right-5 bg-welcome-image-2 bg-contain bg-center bg-no-repeat'>
 
                 </div>
 

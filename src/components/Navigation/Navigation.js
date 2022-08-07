@@ -1,45 +1,42 @@
 import { NavLink, Link } from 'react-router-dom';
+import { useEthers } from "@usedapp/core";
 
 function Navigation() {
+    const { activateBrowserWallet, deactivate, account } = useEthers();
+
     return (
-        <nav class="mt-[0px] fixed w-full inset-x-0 top-0' bg-gradient-to-r from-blue-600 to-purple-600">
-            <div class="containerHeader md:containerHeaderL">
-                <div class="flex items-center md:div">
-                    <div class="text-right pb-1 md:flex md:items-end">
-                        <div>
-                            <Link to='dApp-useDApp-project/' class="dm:textLogo1 md:textLogo1L">ETHEREUM</Link>
-                        </div>
-                        <div>
-                            <a href="http://facebook.com/trantieuvann" target="_blank" class="dm:textLogo2 md:textLogo2L">.SnowyField</a>
-                        </div>
-                    </div>
+        <nav class="flex fixed w-full inset-x-0 top-5 items-center place-items-center justify-items-center">
+            <Link to='dApp-useDApp-project/' class="w-[20%] font-bold text-white text-3xl text-center font-sans">Dimension</Link>
 
-                    <div class="lg:place-content-around ml-auto">
-                            <NavLink to="dApp-useDApp-project/Wallet" className={({ isActive }) =>
-                                isActive ? ' ' : ' first-line:'}>Your Wallet</NavLink>
-                            <NavLink to="dApp-useDApp-project/Transaction" className={({ isActive }) =>
-                                isActive ? ' ' : ' '}>Transaction</NavLink>
-                    </div>
-
-                    <div class="flex ml-auto navTopRightElementsL">
-                        <div class="ms:hidden divGrid cursor-pointer transition-colors duration-200 transform rounded-md md:mt-0 bg-blue-800">
-                            <h3 class="text-tiny font-medium text-white px-2 pt-1">Nguyễn Hữu Thuận</h3>
-                            <h6 class="text-xs font-light text-white px-2 pb-1">aswdqe1x@gmail.com</h6>
-                        </div>
-
-
-                        <button class="mx-4 text-white transition-colors duration-200 hover:text-yellow-500 focus:text-yellow-500 focus:outline-none" aria-label="show notifications">
-                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
-
-                        <img style={{ borderRadius: 40, height: 40, width: 40 }} src={"https://i.imgur.com/Xq6LPWC.jpeg"} alt="avatar" />
-
-                    </div>
-                </div>
+            <div class="w-[55%] flex items-center place-items-center justify-items-center place-content-around transition-all duration-200 ease-in-out">
+                <NavLink to="dApp-useDApp-project/Wallet" className={({ isActive }) =>
+                    isActive ? 'text-lg text-white bg-bottom bg-gradient-to-r from-white to-white bg-no-repeat bg-[length:100%_2px]' : 'text-lg text-gray-400 bg-bottom bg-gradient-to-r from-gray-300 to-gray-300 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-200 ease-out'}>Your Wallet</NavLink>
+                <NavLink to="dApp-useDApp-project/Transaction" className={({ isActive }) =>
+                    isActive ? 'text-lg text-white bg-bottom bg-gradient-to-r from-white to-white bg-no-repeat bg-[length:100%_2px]' : 'text-lg text-gray-400 bg-bottom bg-gradient-to-r from-gray-300 to-gray-300 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-200 ease-out'}>Transaction</NavLink>
+                <NavLink to="dApp-useDApp-project/Upgrade" className={({ isActive }) =>
+                    isActive ? 'text-lg text-white bg-bottom bg-gradient-to-r from-white to-white bg-no-repeat bg-[length:100%_2px]' : 'text-lg text-gray-400 bg-bottom bg-gradient-to-r from-gray-300 to-gray-300 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-200 ease-out'}>Upgrade Card</NavLink>
+                <NavLink to="dApp-useDApp-project/About" className={({ isActive }) =>
+                    isActive ? 'text-lg text-white bg-bottom bg-gradient-to-r from-white to-white bg-no-repeat bg-[length:100%_2px]' : 'text-lg text-gray-400 bg-bottom bg-gradient-to-r from-gray-300 to-gray-300 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-200 ease-out'}>About</NavLink>
             </div>
-        </nav>
+
+            <div class="w-[25%] grid">
+                {account ?
+                    <button onClick={deactivate} className='place-self-center relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full'>
+                        <div class="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00ea] group-hover:via-[#ff0073] group-hover:to-[#ff5d3d] absolute"></div>
+                        <div class="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-full group-hover:bg-opacity-0 duration-400">
+                            <div class="relative text-white">Disconnect</div>
+                        </div>
+                    </button>
+                    :
+                    <button onClick={activateBrowserWallet} className='place-self-center relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full'>
+                        <div class="w-full h-full bg-gradient-to-br from-[#cc3eff] via-[#11d3ff] to-[#22ff98] group-hover:from-[#00ff91] group-hover:via-[#00b3ff] group-hover:to-[#b742ff] absolute"></div>
+                        <div class="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-full group-hover:bg-opacity-0 duration-400">
+                            <div class="relative text-white">Connect wallet</div>
+                        </div>
+                    </button>
+                }
+            </div>
+        </nav >
     )
 }
 

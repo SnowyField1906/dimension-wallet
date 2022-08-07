@@ -20,13 +20,6 @@ function Wallet() {
 
     const [network, setNetwork] = useState(null);
 
-    const routeChange = () => {
-        deactivate();
-        return (
-            <Navigate to="/dApp-useDApp-project/" />
-        )
-    }
-
     if (!account) {
         return (
             <Navigate to="/dApp-useDApp-project/" />
@@ -66,7 +59,7 @@ function Wallet() {
 
             </div >
             <div>
-                <button onClick={routeChange} className='relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full'>
+                <button onClick={deactivate} className='relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full'>
                     <div class="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00ea] group-hover:via-[#ff0073] group-hover:to-[#ff5d3d] absolute"></div>
                     <div class="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-full group-hover:bg-opacity-0 duration-400">
                         <div class="relative text-white">Disconnect</div>
