@@ -9,7 +9,7 @@ function App() {
 
 
   return (
-    <div className="h-screen bg-screen bg-cover bg-center">
+    <div className="h-screen bg-screen bg-cover bg-center overscroll-none ">
       <Router >
         <Navigation />
         <Routes>
