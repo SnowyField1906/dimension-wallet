@@ -12,7 +12,6 @@ function Welcome() {
         )
     }
 
-    else {
         return (
             <div className='h-full flex justify-items-stretch items-center'>
                 <div className='w-[60%] ml-[10%] mr-[50%] place-self-center'>
@@ -37,9 +36,5 @@ function Welcome() {
             </div>
         )
     }
-}
-<a class="">
-
-</a>
 
 export default Welcome

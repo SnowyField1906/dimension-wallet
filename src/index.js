@@ -21,6 +21,7 @@ const config = {
     expirationPeriod: 1000,
     checkInterval: 1000,
   },
+  gasLimitBufferPercentage: 10,
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

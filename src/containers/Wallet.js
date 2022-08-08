@@ -25,7 +25,7 @@ function Wallet() {
             <Navigate to="/dApp-useDApp-project/" />
         )
     }
-
+    
     return (
         <div className='h-full grid justify-center place-items-center p'>
 
