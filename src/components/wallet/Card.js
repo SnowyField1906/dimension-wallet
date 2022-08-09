@@ -4,27 +4,27 @@ import Balance from './Balance'
 
 function Card(props) {
     return (
-        <div class="mx-20 relative w-[307px] h-[183px] bg-card rounded-lg select-none">
+        <div className="mx-20 relative w-[307px] h-[183px] bg-card rounded-lg select-none">
             <div className='h-[10%] pt-3'>
-                <div class="text-white font-light text-base font-sans text-center">ETHEREUM CREDIT CARD</div>
+                <div className="text-white font-light text-base font-sans text-center">ETHEREUM CREDIT CARD</div>
             </div>
-            <div class="flex h-[55%] pt-9">
+            <div className="flex h-[55%] pt-9">
                 <div className='ml-6'>
                     <p className='text-white text-[0.7rem] font-thin'>Addrerss</p>
-                    <p class="text-base text-white font-bold">
+                    <p className="text-base text-white font-bold">
                         {props.account.substring(0, 6) + ' ... ' + props.account.substring(props.account.length - 4, props.account.length)}
                     </p>
                 </div>
                 <div className='absolute right-6 text-right'>
                     <p className='text-white text-[0.7rem] font-thin'>Network</p>
-                    <p class="text-base text-white font-bold">
+                    <p className="text-base text-white font-bold">
                         {props.network ? props.network : 'Choose network'}
                     </p>
                 </div>
 
             </div>
 
-            <div class="flex w-full h-[35%] bg-black bg-opacity-20 rounded-b-lg">
+            <div className="flex w-full h-[35%] bg-black bg-opacity-20 rounded-b-lg">
 
                 <div className='grid justify-items-stretch items-center'>
                     <div className='flex px-3 mt-3'>
@@ -37,7 +37,7 @@ function Card(props) {
                 </div>
 
                 <div className='absolute right-3 px-2 place-self-center'>
-                    <svg className='w-[50px] h-[50px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill='white' enable-background="new 0 0 24 24" >
+                    <svg className='w-[50px] h-[50px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill='white'>
                         <path d="M7.7,19.2c-4,0-7.2-3.2-7.2-7.2s3.2-7.2,7.2-7.2c4,0,7.2,3.2,7.2,7.2S11.7,19.2,7.7,19.2z M7.7,5.8
 			c-3.4,0-6.2,2.8-6.2,6.2s2.8,6.2,6.2,6.2c3.4,0,6.2-2.8,6.2-6.2S11.2,5.8,7.7,5.8z"/>
                         <path d="M16.3,19.2c-4,0-7.2-3.2-7.2-7.2s3.2-7.2,7.2-7.2c4,0,7.2,3.2,7.2,7.2S20.3,19.2,16.3,19.2z M16.3,5.8

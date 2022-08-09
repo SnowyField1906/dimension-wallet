@@ -1,21 +1,31 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Navigate } from 'react-router-dom';
 import { useEthers, useSendTransaction } from "@usedapp/core";
 
-import Network from '../components/Transaction/Network';
+import NetworkSwitch from '../components/Transaction/NetworkSwitch';
 
 function Transaction() {
-    const { account } = useEthers()
+    const { account, switchNetwork } = useEthers()
     const { sendTransaction, state } = useSendTransaction()
 
-    const status = state.status
+    var status = state.status
 
-    const [network, setNetwork] = useState(null)
-    const [address, setAddress] = useState(null)
-    const [amount, setAmount] = useState(null)
+    const [address, setAddress] = useState()
+    const [amount, setAmount] = useState()
 
-    const send = (amountWei) => {
-        void sendTransaction({ to: address, value: amountWei.toString() })
+    const [networkId, setNetworkId] = useState()
+
+    const ref = useRef();
+    useEffect(() => {
+        ref.current = networkId;
+    }, [networkId]);
+
+    const send = async (amountWei) => {
+        await switchNetwork(networkId)
+        if (networkId !== ref.current) {
+            status = 'network has not changed'
+        }
+        sendTransaction({ to: address, value: amountWei.toString() })
     }
 
     const amountHandle = e => {
@@ -33,7 +43,9 @@ function Transaction() {
     return (
         <div className='grid h-full'>
             <div className='h-[50%] w-[50%] grid justify-center place-items-center place-self-center border-[3px] rounded-xl border-gray-500'>
-                <Network />
+
+                <NetworkSwitch setNetworkId={setNetworkId} />
+
                 <div className='flex'>
                     <p className='text-white text-2xl'>Address</p>
                     <input type='text' value={address} onChange={e => setAddress(e.target.value)}

@@ -22,9 +22,9 @@ function Welcome() {
                         Welcome to Dimension Wallet
                     </p>
                     <button onClick={activateBrowserWallet} className='place-self-center relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full'>
-                        <div class="w-full h-full bg-gradient-to-br from-[#cc3eff] via-[#11d3ff] to-[#22ff98] group-hover:from-[#00ff91] group-hover:via-[#00b3ff] group-hover:to-[#b742ff] absolute"></div>
-                        <div class="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-full group-hover:bg-opacity-0 duration-400">
-                            <div class="relative text-white">Connect wallet</div>
+                        <div className="w-full h-full bg-gradient-to-br from-[#cc3eff] via-[#11d3ff] to-[#22ff98] group-hover:from-[#00ff91] group-hover:via-[#00b3ff] group-hover:to-[#b742ff] absolute"></div>
+                        <div className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-full group-hover:bg-opacity-0 duration-400">
+                            <div className="relative text-white">Connect wallet</div>
                         </div>
                     </button>
 
