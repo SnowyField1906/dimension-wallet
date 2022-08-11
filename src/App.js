@@ -20,7 +20,6 @@ function App() {
           <Route path='dApp-useDApp-project/About' element={<About />} />
         </Routes>
       </Router>
-
     </div>
   );
 }
