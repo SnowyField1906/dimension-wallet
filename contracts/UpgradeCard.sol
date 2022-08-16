@@ -1,28 +1,25 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.9;
-
-// Import this file to use console.log
-import "hardhat/console.sol";
+pragma solidity ^0.8.7;
 
 contract upgradeCard {
     address private owner;
 
     struct Card {
         string name;
-        uint256 price;
+        uint price;
     }
     mapping(uint => Card) public cards;
     uint public numberOfTypes;
 
     struct Purchase {
         Card card;
-        uint256 purchaseDate;
+        uint purchaseDate;
     }
 
     struct User {
-        address userAddress;
-        uint256 numberOfCards;
+        uint numberOfCards;
         Purchase[] purchase;
+        bool exist;
     }
     mapping(address => User) public users;
 
@@ -42,7 +39,6 @@ contract upgradeCard {
         Card storage card = cards[numberOfTypes];
         card.name = _name;
         card.price = _price;
-
         numberOfTypes++;
     }
 
@@ -52,26 +48,24 @@ contract upgradeCard {
     }
 
     function checkExistedUser(address _userAddress) public view returns(bool) {
-        if (users[_userAddress].userAddress == _userAddress) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return users[_userAddress].exist ? true : false;
     }
-    function buy(uint _id) public {
+
+    function purchaseCard(uint _id) public {
+        require(0 < _id && _id >= numberOfTypes, "Card does not exist");
+        User storage user = users[msg.sender];
         if (!checkExistedUser(msg.sender)) {
-            users[msg.sender].numberOfCards = 0;
+            user.exist = true;
+            user.numberOfCards = 0;
         }
-        users[msg.sender].purchase[users[msg.sender].numberOfCards].card = cards[_id];
-        users[msg.sender].purchase[users[msg.sender].numberOfCards].purchaseDate = block.timestamp;
-        users[msg.sender].numberOfCards++;
+        user.purchase.push(Purchase(cards[_id], block.timestamp));
+        user.numberOfCards++;
     }
 
     function showRemainingDate(uint _id) public view returns(uint) {
         for (uint i = 0; i < users[msg.sender].numberOfCards; i++) {
             if (keccak256(abi.encodePacked(users[msg.sender].purchase[i].card.name)) == keccak256(abi.encodePacked(cards[_id].name))) {
-                return block.timestamp - users[msg.sender].purchase[i].purchaseDate;
+                return 30*86400 - (block.timestamp - users[msg.sender].purchase[i].purchaseDate);
             }
         }
         return 0;
@@ -92,4 +86,5 @@ contract upgradeCard {
         users[msg.sender].numberOfCards--;
         delete users[msg.sender].purchase[purchaseId];
     }
+
 }
