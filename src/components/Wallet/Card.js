@@ -4,22 +4,23 @@ import Balance from './Balance'
 
 function Card(props) {
     return (
-        <div className="mx-20 relative w-[307px] h-[183px] bg-card rounded-lg select-none">
+        <div style={{ backgroundImage: `url(../src/images/card${props.id}.jpg)` }}
+            className="mx-20 relative w-[307px] h-[183px] rounded-lg select-none">
             <div className='h-[10%] pt-3'>
                 <div className="text-white font-light text-base font-sans text-center">ETHEREUM CREDIT CARD</div>
             </div>
             <div className="flex h-[55%] pt-9">
                 <div className='ml-6'>
                     <p className='text-white text-[0.7rem] font-thin'>Addrerss</p>
-                    <p className="text-base text-white font-bold">
+                    {props.account && <p className="text-base text-white font-bold">
                         {props.account.substring(0, 6) + ' ... ' + props.account.substring(props.account.length - 4, props.account.length)}
-                    </p>
+                    </p>}
                 </div>
                 <div className='absolute right-6 text-right'>
                     <p className='text-white text-[0.7rem] font-thin'>Network</p>
-                    <p className="text-base text-white font-bold">
+                    {props.account && <p className="text-base text-white font-bold">
                         {props.network ? props.network : 'Choose network'}
-                    </p>
+                    </p>}
                 </div>
 
             </div>
@@ -31,7 +32,7 @@ function Card(props) {
                         <svg className="w-[6%] h-[6%] mx-3" style={{ color: "white" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" >
                             <path d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z" fill="white" />
                         </svg>
-                        <Balance balance={props.balance} network={props.network} />
+                        {props.account && <Balance balance={props.balance} network={props.network} />}
                     </div>
                     <p className='px-6 mb-2 text-white text-[0.7rem] font-thin'>Balance</p>
                 </div>

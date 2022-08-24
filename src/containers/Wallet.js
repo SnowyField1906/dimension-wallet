@@ -31,7 +31,7 @@ function Wallet() {
 
             <div className="flex justify-center place-items-center mt-32">
                 <div className='absolute left-20'>
-                <Card account={account} balance={balance} network={network} />
+                <Card account={account} balance={balance} network={network} id={1} />
 
                 </div>
                 <div className='grid absolute left-[50%]'>
@@ -57,7 +57,7 @@ function Wallet() {
 
 
 
-            </div >
+            </div>
             <div>
                 <button onClick={deactivate} className='relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full'>
                     <div className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00ea] group-hover:via-[#ff0073] group-hover:to-[#ff5d3d] absolute"></div>
