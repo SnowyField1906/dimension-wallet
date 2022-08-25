@@ -27,6 +27,10 @@ function Upgrade() {
         price: ""
     });
 
+    const [removeCardState, setRemoveCardState] = useState({
+        id: ""
+    });
+
 
     const handleAddCardState = (e) => {
         setAddCardState({ ...addCardState, [e.target.name]: e.target.value });
@@ -34,6 +38,14 @@ function Upgrade() {
 
     const handleAddCardAction = () => {
         addCard(addCardState.name, addCardState.price);
+    }
+
+    const handleRemoveCardState = (e) => {
+        setRemoveCardState({ ...removeCardState, [e.target.name]: e.target.value });
+    }
+
+    const handleRemoveCardAction = () => {
+        removeCard(removeCardState.id);
     }
 
     if (!account) {
@@ -44,7 +56,7 @@ function Upgrade() {
     return (
         <div className='grid h-full justify-items-center'>
             <div className='pt-[10%] w-[80%] flex flex-nowrap snap-mandatory snap-x
-            justify-center scrollbar scrollbar-thumb-gray-300 scrollbar-track-gray-500 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
+            justify-center overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
                 {numberOfTypes && [...Array(parseInt(numberOfTypes))].map((_, index) => (
                     <Cards
                         index={index + 1}
@@ -53,6 +65,7 @@ function Upgrade() {
             </div>
 
             {account === '0x71A7464FA7b0FDEf51745cD04efcBE4F1484CE4c' &&
+                <div className='flex w-full justify-evenly'>
                 <div className='grid self-center w-[30%]'>
                     <input type="text" name="name" value={addCardState.name} onChange={handleAddCardState}
                         className='mx-5 form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-gray-800 bg-clip-padding border-solid border-2 border-gray-500 rounded transition ease-in-out m-0 focus:text-white focus:bg-gray-800 focus:border-blue-500 focus:outline-none'
@@ -63,6 +76,15 @@ function Upgrade() {
                     <button onClick={handleAddCardAction}
                         className='text-white text-3xl'
                     >Add Card</button>
+                    </div>
+                    <div className='grid self-center w-[30%]'>
+                        <input type="text" name="id" value={removeCardState.id} onChange={handleRemoveCardState}
+                            className='mx-5 form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-gray-800 bg-clip-padding border-solid border-2 border-gray-500 rounded transition ease-in-out m-0 focus:text-white focus:bg-gray-800 focus:border-blue-500 focus:outline-none'
+                        />
+                        <button onClick={handleRemoveCardAction}
+                            className='text-white text-3xl'
+                        >Remove Card</button>
+                    </div>
                 </div>
             }
             <div>
