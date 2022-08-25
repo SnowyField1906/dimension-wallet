@@ -27,6 +27,7 @@ function Upgrade() {
         price: ""
     });
 
+
     const handleAddCardState = (e) => {
         setAddCardState({ ...addCardState, [e.target.name]: e.target.value });
     }
@@ -46,10 +47,11 @@ function Upgrade() {
             justify-center overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
                 {numberOfTypes && [...Array(parseInt(numberOfTypes))].map((_, index) => (
                     <Cards
-                        index={index}
+                        index={index + 1}
                     />
                 ))}
             </div>
+
             {account === '0x71A7464FA7b0FDEf51745cD04efcBE4F1484CE4c' &&
                 <div className='grid self-center w-[30%]'>
                     <input type="text" name="name" value={addCardState.name} onChange={handleAddCardState}
