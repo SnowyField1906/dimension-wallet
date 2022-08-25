@@ -7,7 +7,7 @@ function About() {
 
     if (!account) {
         return (
-            <Navigate to="/dApp-useDApp-project/" />
+            <Navigate to="/Dimension-Wallet/" />
         )
     }
     return (

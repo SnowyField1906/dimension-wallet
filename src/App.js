@@ -13,11 +13,11 @@ function App() {
       <Router >
         <Navigation />
         <Routes>
-          <Route path="dApp-useDApp-project/" exact element={<Welcome />} />
-          <Route path='dApp-useDApp-project/Wallet' element={<Wallet />} />
-          <Route path='dApp-useDApp-project/Transaction' element={<Transaction />} />
-          <Route path='dApp-useDApp-project/Upgrade' element={<Upgrade />} />
-          <Route path='dApp-useDApp-project/About' element={<About />} />
+          <Route path="Dimension-Wallet/" exact element={<Welcome />} />
+          <Route path='Dimension-Wallet/Wallet' element={<Wallet />} />
+          <Route path='Dimension-Wallet/Transaction' element={<Transaction />} />
+          <Route path='Dimension-Wallet/Upgrade' element={<Upgrade />} />
+          <Route path='Dimension-Wallet/About' element={<About />} />
         </Routes>
       </Router>
     </div>

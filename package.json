@@ -1,8 +1,8 @@
 {
-  "name": "dapp-usedapp-project",
+  "name": "Dimension-Wallet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://snowyfield1906.github.io/dApp-useDApp-project/",
+  "homepage": "https://snowyfield1906.github.io/Dimension-Wallet/",
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",

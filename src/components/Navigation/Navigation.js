@@ -6,16 +6,16 @@ function Navigation() {
 
     return (
         <nav class="flex fixed w-full inset-x-0 top-5 items-center place-items-center justify-items-center">
-            <Link to='dApp-useDApp-project/' class="w-[20%] font-bold text-white text-3xl text-center font-sans">Dimension</Link>
+            <Link to='Dimension-Wallet/' class="w-[20%] font-bold text-white text-3xl text-center font-sans">Dimension</Link>
 
             <div class="w-[55%] px-[5%] flex items-center place-items-center justify-items-center place-content-around transition-all duration-200 ease-in-out">
-                <NavLink to="dApp-useDApp-project/Wallet" className={({ isActive }) =>
+                <NavLink to="Dimension-Wallet/Wallet" className={({ isActive }) =>
                     isActive ? 'text-lg text-white bg-bottom bg-gradient-to-r from-white to-white bg-no-repeat bg-[length:100%_2px]' : 'text-lg text-gray-400 bg-bottom bg-gradient-to-r from-gray-300 to-gray-300 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-200 ease-out'}>Your Wallet</NavLink>
-                <NavLink to="dApp-useDApp-project/Transaction" className={({ isActive }) =>
+                <NavLink to="Dimension-Wallet/Transaction" className={({ isActive }) =>
                     isActive ? 'text-lg text-white bg-bottom bg-gradient-to-r from-white to-white bg-no-repeat bg-[length:100%_2px]' : 'text-lg text-gray-400 bg-bottom bg-gradient-to-r from-gray-300 to-gray-300 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-200 ease-out'}>Transaction</NavLink>
-                <NavLink to="dApp-useDApp-project/Upgrade" className={({ isActive }) =>
+                <NavLink to="Dimension-Wallet/Upgrade" className={({ isActive }) =>
                     isActive ? 'text-lg text-white bg-bottom bg-gradient-to-r from-white to-white bg-no-repeat bg-[length:100%_2px]' : 'text-lg text-gray-400 bg-bottom bg-gradient-to-r from-gray-300 to-gray-300 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-200 ease-out'}>Upgrade Card</NavLink>
-                <NavLink to="dApp-useDApp-project/About" className={({ isActive }) =>
+                <NavLink to="Dimension-Wallet/About" className={({ isActive }) =>
                     isActive ? 'text-lg text-white bg-bottom bg-gradient-to-r from-white to-white bg-no-repeat bg-[length:100%_2px]' : 'text-lg text-gray-400 bg-bottom bg-gradient-to-r from-gray-300 to-gray-300 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-200 ease-out'}>About</NavLink>
             </div>
 

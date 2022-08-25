@@ -38,13 +38,13 @@ function Upgrade() {
 
     if (!account) {
         return (
-            <Navigate to="/dApp-useDApp-project/" />
+            <Navigate to="/Dimension-Wallet/" />
         )
     }
     return (
         <div className='grid h-full justify-items-center'>
-            <div className='pt-[10%] w-full flex flex-nowrap snap-mandatory snap-x
-            justify-center overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
+            <div className='pt-[10%] w-[80%] flex flex-nowrap snap-mandatory snap-x
+            justify-center scrollbar scrollbar-thumb-gray-300 scrollbar-track-gray-500 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
                 {numberOfTypes && [...Array(parseInt(numberOfTypes))].map((_, index) => (
                     <Cards
                         index={index + 1}

@@ -4,7 +4,7 @@ import Balance from './Balance'
 
 function Card(props) {
     return (
-        <div className={"bg-[url('../src/images/card" + props.id + ".jpg')] bg-cover mx-20 relative w-[307px] h-[183px] rounded-lg select-none"}>
+        <div className={"bg-[url('../src/images/card" + props.id + ".jpg')] bg-cover mx-5 relative w-[307px] h-[183px] rounded-lg select-none"}>
             <div className="bg-black bg-opacity-5 absolute w-full h-full rounded-lg">
             <div className='h-[10%] pt-3'>
                 <div className="text-white font-light text-base font-sans text-center">ETHEREUM CREDIT CARD</div>
