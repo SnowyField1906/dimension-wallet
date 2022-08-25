@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Dimension-Wallet/static/css/main.4f8836d2.css",
-    "main.js": "/Dimension-Wallet/static/js/main.28d04459.js",
+    "main.css": "/Dimension-Wallet/static/css/main.8fffa6ea.css",
+    "main.js": "/Dimension-Wallet/static/js/main.b2648183.js",
     "static/js/787.9806621a.chunk.js": "/Dimension-Wallet/static/js/787.9806621a.chunk.js",
     "static/media/welcome-image-2.png": "/Dimension-Wallet/static/media/welcome-image-2.4bb970860db5ab8faa44.png",
     "static/media/screen.jpg": "/Dimension-Wallet/static/media/screen.1493fd35311790400b4c.jpg",
     "index.html": "/Dimension-Wallet/index.html",
-    "main.4f8836d2.css.map": "/Dimension-Wallet/static/css/main.4f8836d2.css.map",
-    "main.28d04459.js.map": "/Dimension-Wallet/static/js/main.28d04459.js.map",
+    "main.8fffa6ea.css.map": "/Dimension-Wallet/static/css/main.8fffa6ea.css.map",
+    "main.b2648183.js.map": "/Dimension-Wallet/static/js/main.b2648183.js.map",
     "787.9806621a.chunk.js.map": "/Dimension-Wallet/static/js/787.9806621a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f8836d2.css",
-    "static/js/main.28d04459.js"
+    "static/css/main.8fffa6ea.css",
+    "static/js/main.b2648183.js"
   ]
 }
