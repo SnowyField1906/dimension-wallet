@@ -31,6 +31,7 @@ contract upgradeCard {
     constructor() {
         owner = msg.sender;
         numberOfTypes = 0;
+        // addCard('Basic', 0);
     }
 
     /// ///
@@ -43,12 +44,15 @@ contract upgradeCard {
     }
 
     function removeCard(uint _id) public isOwner {
+        for (uint i = _id; i < numberOfTypes - 1; i++){
+            cards[i] = cards[i + 1];
+        }
         numberOfTypes--;
-        delete cards[_id];
+        delete cards[numberOfTypes];
     }
 
     function checkExistedUser(address _userAddress) public view returns(bool) {
-        return users[_userAddress].exist ? true : false;
+        return users[_userAddress].exist;
     }
 
     function purchaseCard(uint _id) public {
@@ -83,8 +87,11 @@ contract upgradeCard {
                 break;
             }
         }
+        for (uint i = purchaseId; i < users[msg.sender].numberOfCards - 1; i++) {
+            users[msg.sender].purchase[i] = users[msg.sender].purchase[i + 1];
+        }
         users[msg.sender].numberOfCards--;
-        delete users[msg.sender].purchase[purchaseId];
+        delete users[msg.sender].purchase[ users[msg.sender].numberOfCards ];
     }
 
 }
