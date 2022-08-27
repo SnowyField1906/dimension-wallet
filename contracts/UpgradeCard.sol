@@ -56,7 +56,7 @@ contract upgradeCard {
     }
 
     function purchaseCard(uint _id) public {
-        require(0 < _id && _id >= numberOfTypes, "Card does not exist");
+        require(0 < _id || _id >= numberOfTypes, "Card does not exist");
         User storage user = users[msg.sender];
         if (!checkExistedUser(msg.sender)) {
             user.exist = true;

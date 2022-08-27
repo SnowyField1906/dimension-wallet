@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Navigate } from 'react-router-dom';
 import { useEthers } from "@usedapp/core";
 
-import { useCards, useNumberOfTypes, useShowPurchasedCards, useShowRemainingDays, useContractMethod } from "../contracts/hooks/";
+import { useCards, useNumberOfTypes, useShowPurchasedCards, useShowRemainingDays, useContractMethod } from "../contracts/hooks";
 
 import Admin from '../components/Upgrade/Admin';
 import Cards from '../components/Upgrade/Cards';
@@ -40,6 +40,8 @@ function Upgrade() {
     const handleRemoveCardAction = () => {
         removeCard(removeCardState);
     }
+
+    console.log(showPurchasedCards)
 
     // const handlePurchaseCardAction = () => {
     //     purchaseCard(purchaseCardState.id);
