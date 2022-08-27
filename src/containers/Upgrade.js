@@ -65,7 +65,7 @@ function Upgrade() {
     }
     return (
         <div className='grid h-full justify-items-center'>
-            <div className='flex justify-between pt-[10%] w-[80%] snap-mandatory snap-x overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
+            <div className='flex justify-between pt-[7%] w-[80%] h-[80%] snap-mandatory snap-x overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
                 {numberOfTypes && [...Array(parseInt(numberOfTypes))].map((_, index) => (<Cards index={index}/>))}
             </div>
 

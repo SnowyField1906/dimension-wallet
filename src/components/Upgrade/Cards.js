@@ -16,7 +16,7 @@ function Cards({ index }) {
         return (
             <div className="item grid place-items-center">
                 <Card id={index} />
-                <p className=" text-white">BASIC DIMENSION CARD</p>
+                <p className=" text-white self-start">BASIC DIMENSION CARD</p>
             </div>
         )
     }
