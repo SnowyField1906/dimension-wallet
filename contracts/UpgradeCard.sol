@@ -5,6 +5,7 @@ contract upgradeCard {
     address private owner;
 
     struct Card {
+        uint id;
         string name;
         uint price;
     }
@@ -31,13 +32,43 @@ contract upgradeCard {
     constructor() {
         owner = msg.sender;
         numberOfTypes = 0;
-        // addCard('Basic', 0);
+        addCard('Basic', 0);
     }
 
     /// ///
 
+    function checkExistedUser(address _userAddress) public view returns(bool) {
+        return users[_userAddress].exist;
+    }
+
+    function returnUserPurchase(address _userAddress) public view returns(Purchase[]) {
+        return users[_userAddress].purchase;
+    }
+
+
+    function showRemainingDate(uint _id) public view returns(uint) {
+        for (uint i = 0; i < users[msg.sender].numberOfCards; i++) {
+            if (users[msg.sender].purchase[i].card.id == cards[_id].id) {
+                return 30*86400 - (block.timestamp - users[msg.sender].purchase[i].purchaseDate);
+            }
+        }
+        return 0;
+    }
+
+    function checkPurchase(uint _id) public view returns (bool) {
+        for (uint i = 0; i < users[msg.sender].numberOfCards; i++) {
+            if (users[msg.sender].purchase[i].card.id == cards[_id].id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    ///
+
     function addCard(string memory _name, uint _price) public isOwner {
         Card storage card = cards[numberOfTypes];
+        card.id = block.timestamp;
         card.name = _name;
         card.price = _price;
         numberOfTypes++;
@@ -51,10 +82,6 @@ contract upgradeCard {
         delete cards[numberOfTypes];
     }
 
-    function checkExistedUser(address _userAddress) public view returns(bool) {
-        return users[_userAddress].exist;
-    }
-
     function purchaseCard(uint _id) public {
         require(0 < _id || _id >= numberOfTypes, "Card does not exist");
         User storage user = users[msg.sender];
@@ -66,23 +93,10 @@ contract upgradeCard {
         user.numberOfCards++;
     }
 
-    function showRemainingDate(uint _id) public view returns(uint) {
-        for (uint i = 0; i < users[msg.sender].numberOfCards; i++) {
-            if (keccak256(abi.encodePacked(users[msg.sender].purchase[i].card.name)) == keccak256(abi.encodePacked(cards[_id].name))) {
-                return 30*86400 - (block.timestamp - users[msg.sender].purchase[i].purchaseDate);
-            }
-        }
-        return 0;
-    }
-
-    function showPurchasedCards() public view returns (Purchase[] memory) {
-        return users[msg.sender].purchase;
-    }
-
     function expiredCard(uint _id) public {
         uint purchaseId;
         for (uint i = 0; i < users[msg.sender].numberOfCards; i++) {
-            if (keccak256(abi.encodePacked(users[msg.sender].purchase[i].card.name)) == keccak256(abi.encodePacked(cards[_id].name))) {
+            if (users[msg.sender].purchase[i].card.id == cards[_id].id) {
                 purchaseId = i;
                 break;
             }

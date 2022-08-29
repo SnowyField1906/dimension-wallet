@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Navigate } from 'react-router-dom';
 import { useEthers } from "@usedapp/core";
 
-import { useCards, useNumberOfTypes, useShowPurchasedCards, useShowRemainingDays, useContractMethod } from "../contracts/hooks";
+import { useCards, useUsers, useNumberOfTypes, useCheckPurchase, useShowRemainingDate, useCheckExistedUser, useContractMethod } from "../contracts/hooks";
 
 import Admin from '../components/Upgrade/Admin';
 import Cards from '../components/Upgrade/Cards';
@@ -11,13 +11,11 @@ function Upgrade() {
     const { account } = useEthers();
 
     const numberOfTypes = useNumberOfTypes();
-    const showPurchasedCards = useShowPurchasedCards();
-    const showRemainingDays = useShowRemainingDays();
 
+    const user = useUsers(account);
 
     const { state: stateAddCard, send: addCard } = useContractMethod("addCard");
     const { state: stateExpriedCard, send: expriedCard } = useContractMethod("expriedCard");
-    const { state: statePurchaseCard, send: purchaseCard } = useContractMethod("purchaseCard");
     const { state: stateRemoveCard, send: removeCard } = useContractMethod("removeCard");
     // const { state: checkExistedUserState, send: checkExistedUser } = useContractMethod("checkExistedUser");
 
@@ -41,22 +39,8 @@ function Upgrade() {
         removeCard(removeCardState);
     }
 
-    console.log(showPurchasedCards)
-
-    // const handlePurchaseCardAction = () => {
-    //     purchaseCard(purchaseCardState.id);
-    // }
-
-    // console.log(parseInt(numberOfTypes));
-    // console.log(useCards(0))
-    // console.log(useCards(1));
-    // console.log(useCards(2));
-    // console.log(useCards(3));
-    // console.log(useCards(4));
-    // console.log(useCards(5));
-    // console.log(useCards(6));
-
-
+    console.log(useCheckPurchase(3))
+    console.log(parseInt(useShowRemainingDate(3)))
 
     if (!account) {
         return (
@@ -65,9 +49,15 @@ function Upgrade() {
     }
     return (
         <div className='grid h-full justify-items-center'>
-            <div className='flex justify-between pt-[7%] w-[80%] h-[80%] snap-mandatory snap-x overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
-                {numberOfTypes && [...Array(parseInt(numberOfTypes))].map((_, index) => (<Cards index={index}/>))}
+            <div className='flex justify-between pt-[7%] w-[80%] '>
+                <p className='text-2xl text-center text-white'>Cards on chain: {parseInt(numberOfTypes)}</p>
+                {user && <p className='text-2xl text-center text-white'>Your cards: {parseInt(user?.numberOfCards)}</p>}
             </div>
+            <div className='flex justify-between w-[80%] h-[20rem] snap-mandatory snap-x overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
+                {numberOfTypes && [...Array(parseInt(numberOfTypes))].map((_, index) => (<Cards index={index} />))}
+            </div>
+            <p className='text-slate-400 text-xs justify-self-end mr-[10%]'>*to make you have fully access to all cards for testing, actual prices are all <strong>0 ETH</strong> + gas price</p>
+
 
             {account === '0x71A7464FA7b0FDEf51745cD04efcBE4F1484CE4c' &&
                 <div className='flex w-full justify-evenly'>
@@ -90,11 +80,7 @@ function Upgrade() {
                     </div>
                 </div>
             }
-            <div>
-                <p className='text-2xl text-center text-white'>Cards: {parseInt(numberOfTypes)}</p>
 
-
-            </div>
 
 
 

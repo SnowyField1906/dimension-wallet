@@ -13,15 +13,9 @@ const config = {
     [Mainnet.chainId]: getDefaultProvider('mainnet'),
     [Ropsten.chainId]: getDefaultProvider('ropsten'),
     [Kovan.chainId]: getDefaultProvider('kovan'),
-    [Rinkeby.chainId]: 'https://rinkeby.infura.io/v3/5b62b841c8c9436d8cce850e719a7014',
+    [Rinkeby.chainId]: getDefaultProvider('rinkeby'),
     [Goerli.chainId]: getDefaultProvider('goerli')
   },
-  network: { Rinkeby },
-  notifications: {
-    expirationPeriod: 1000,
-    checkInterval: 1000,
-  },
-  gasLimitBufferPercentage: 10,
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

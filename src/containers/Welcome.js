@@ -18,8 +18,6 @@ function Welcome() {
         )
     }
 
-
-
     return (
         <div className='h-full flex justify-items-stretch items-center'>
             {modal && <Guide handleModal={handleModal} />}
@@ -37,10 +35,10 @@ function Welcome() {
                             <div className="relative text-white">Connect wallet</div>
                         </div>
                     </button>
-                    <button onClick={handleModal} className='item place-self-center relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full'>
+                    <button onClick={handleModal} className='item place-self-center relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full transition duration-500 ease-in-out hover:bg-green-400 transform hover:-translate-y-1 animate-bounce'>
                         <div className="w-full h-full bg-gradient-to-br from-[#c23eff] via-[#8411ff] to-[#ff2298] group-hover:from-[#ff00b7] group-hover:via-[#8000ff] group-hover:to-[#dc42ff] absolute"></div>
                         <div className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-full group-hover:bg-opacity-0 duration-400">
-                            <div className="relative text-white">How to use?</div>
+                            <div className="relative text-white ">How to use?</div>
                         </div>
                     </button>
                 </div>

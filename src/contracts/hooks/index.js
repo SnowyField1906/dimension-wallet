@@ -1,11 +1,12 @@
 import { Contract, ethers } from "ethers";
-import { useCall, useCalls, useContractFunction } from "@usedapp/core";
+import { useCall, useContractFunction } from "@usedapp/core";
 
 import contractAbi from "../artifacts/contractAbi.json";
 import { contractAddress } from ".."
 
 const contractInterface = new ethers.utils.Interface(contractAbi);
 const contract = new Contract(contractAddress, contractInterface);
+
 
 export function useCards(index) {
   const { value: cards } = useCall({
@@ -16,16 +17,51 @@ export function useCards(index) {
   return cards;
 }
 
+export function useUsers(address) {
+  const { value: users } = useCall({
+    contract: contract,
+    method: "users",
+    args: [address],
+  }) ?? {};
+  return users;
+}
 
-// export function useCards(totalIndex) {
-//   const calls = totalIndex?.map(contractAddress => ({
-//     contract: new Contract(contractAddress, contractInterface),
-//     method: 'cards',
-//     args: []
-//   })) ?? []
-//   const results = useCalls(calls) ?? []
-//   return results.map(result => result?.value?.[0])
-// }
+export function useCheckExistedUser(address) {
+  const { value: checkExistedUser } = useCall({
+    contract: contract,
+    method: "checkExistedUser",
+    args: [address],
+  }) ?? {};
+  return checkExistedUser;
+}
+
+export function useNumberOfTypes() {
+  const { value: numberOfTypes } = useCall({
+    contract: contract,
+    method: "numberOfTypes",
+    args: [],
+  }) ?? {};
+  return numberOfTypes;
+}
+
+export function useCheckPurchase(index) {
+  const { value: checkPurchase } = useCall({
+    contract: contract,
+    method: "checkPurchase",
+    args: [index],
+  }) ?? {};
+  return checkPurchase;
+}
+
+export function useShowRemainingDate(index) {
+  const { value: showRemainingDate } = useCall({
+    contract: contract,
+    method: "showRemainingDate",
+    args: [index],
+  }) ?? {};
+  return showRemainingDate;
+}
+
 
 export function useAddCard() {
   const { state, send } = useContractFunction(contract, "addCard", {});
@@ -45,38 +81,6 @@ export function usePurchaseCard() {
 export function useRemoveCard() {
   const { state, send } = useContractFunction(contract, "removeCard", {});
   return { state, send };
-}
-
-// export function useCheckExistedUser() {
-//   const { state, send } = useContractFunction(contract, "checkExistedUser", {});
-//   return { state, send };
-// }
-
-export function useNumberOfTypes() {
-  const { value: numberOfTypes } = useCall({
-    contract: contract,
-    method: "numberOfTypes",
-    args: [],
-  }) ?? {};
-  return numberOfTypes;
-}
-
-export function useShowPurchasedCards() {
-  const { value: showPurchasedCards } = useCall({
-    contract: contract,
-    method: "showPurchasedCards",
-    args: [],
-  }) ?? {};
-  return showPurchasedCards;
-}
-
-export function useShowRemainingDays() {
-  const { value: showRemainingDays } = useCall({
-    contract: contract,
-    method: "showRemainingDays",
-    args: [],
-  }) ?? {};
-  return showRemainingDays;
 }
 
 export function useContractMethod(methodName) {
