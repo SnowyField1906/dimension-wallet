@@ -1,4 +1,4 @@
-import { useCards, useCheckPurchase, useShowRemainingDate, useContractMethod } from "../../contracts/hooks";
+import { useCards, useCheckPurchase, useShowRemainingTime, useContractMethod } from "../../contracts/hooks";
 
 import Card from "../Wallet/Card";
 
@@ -6,11 +6,11 @@ import Card from "../Wallet/Card";
 function Cards({ index }) {
     const { send: purchaseCard } = useContractMethod("purchaseCard");
     
-    const checkPurchase = useCheckPurchase(index);
-    const showRemainingDate = useShowRemainingDate(index);
+    const checkPurchase = !!useCheckPurchase(index);
+    const showRemainingDate = useShowRemainingTime(index);
 
     console.log(checkPurchase);
-    // console.log(parseInt(showRemainingDate));
+    console.log(parseInt(showRemainingDate));
 
 
     const card = useCards(index);
@@ -19,8 +19,8 @@ function Cards({ index }) {
         return (
             <div className="item">
                 <Card id={index} />
-                <div className="grid-cols-1 grid-rows-1 gap-1 place-items-center">
-                    <p className=" box text-white">BASIC DIMENSION CARD</p>
+                <div className="grid justify-items-center">
+                    <p className="item text-white">BASIC DIMENSION CARD</p>
                 </div>
             </div>
         )
@@ -34,9 +34,8 @@ function Cards({ index }) {
                 <p className="box text-white">Price: {parseInt(card?.price)} ETH</p>
                 <p className="box row-start-auto row-end-auto col-start-1 col-end-3 text-white">Description: </p>
             </div>
-            {checkPurchase ?
-                <button className="rounded-2xl border-2 px-2 py-1 ml-5 text-xl text-white" onClick={() => purchaseCard(index)}>Purchase</button>
-                :
+            {checkPurchase &&
+
                 <button className="rounded-2xl px-2 py-1 ml-5 text-xl text-white" disabled>Purchased</button>
             }
         </div>

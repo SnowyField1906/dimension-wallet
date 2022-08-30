@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Navigate } from 'react-router-dom';
 import { useEthers } from "@usedapp/core";
 
+
 import { useCards, useUsers, useNumberOfTypes, useCheckPurchase, useShowRemainingDate, useCheckExistedUser, useContractMethod } from "../contracts/hooks";
 
 import Admin from '../components/Upgrade/Admin';
@@ -38,9 +39,6 @@ function Upgrade() {
     const handleRemoveCardAction = () => {
         removeCard(removeCardState);
     }
-
-    console.log(useCheckPurchase(3))
-    console.log(parseInt(useShowRemainingDate(3)))
 
     if (!account) {
         return (

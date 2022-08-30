@@ -53,13 +53,13 @@ export function useCheckPurchase(index) {
   return checkPurchase;
 }
 
-export function useShowRemainingDate(index) {
-  const { value: showRemainingDate } = useCall({
+export function useShowRemainingTime(index) {
+  const { value: showRemainingTime } = useCall({
     contract: contract,
-    method: "showRemainingDate",
+    method: "showRemainingTime",
     args: [index],
   }) ?? {};
-  return showRemainingDate;
+  return showRemainingTime;
 }
 
 

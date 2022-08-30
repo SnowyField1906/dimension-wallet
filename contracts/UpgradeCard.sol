@@ -41,12 +41,8 @@ contract upgradeCard {
         return users[_userAddress].exist;
     }
 
-    function returnUserPurchase(address _userAddress) public view returns(Purchase[]) {
-        return users[_userAddress].purchase;
-    }
 
-
-    function showRemainingDate(uint _id) public view returns(uint) {
+    function showRemainingTime(uint _id) public view returns(uint) {
         for (uint i = 0; i < users[msg.sender].numberOfCards; i++) {
             if (users[msg.sender].purchase[i].card.id == cards[_id].id) {
                 return 30*86400 - (block.timestamp - users[msg.sender].purchase[i].purchaseDate);
