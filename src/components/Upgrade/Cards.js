@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useCards, useCheckPurchase, useShowPurchaseDate, useContractMethod } from "../../contracts/hooks";
 
@@ -12,8 +12,7 @@ function Cards({ account, index }) {
     const checkPurchase = useCheckPurchase(account, index)?.[0];
     const showPurchaseDate = useShowPurchaseDate(account, index);
 
-
-    const [remainingTime] = useState(Math.floor(Date.now() / 1000) - parseInt(showPurchaseDate));
+    const [remainingTime, setRemainingTime] = useState(null);
 
     function convertTime(time) {
         var hours = Math.floor(time / 3600);
@@ -27,6 +26,11 @@ function Cards({ account, index }) {
     }
 
     const card = useCards(index);
+
+    setTimeout(() => {
+        setRemainingTime(parseInt(card?.lifeSpan) + parseInt(showPurchaseDate) - Math.floor(Date.now() / 1000));
+    }, 1000);
+
 
     if (index === 0) {
         return (
@@ -45,7 +49,7 @@ function Cards({ account, index }) {
             <div className="grid grid-cols-2 grid-rows-2 gap-1 place-items-center">
                 <p className="box text-white">Name: {card?.name}</p>
                 <p className="box text-white">Price: {parseInt(card?.price)} ETH</p>
-                <p className="box text-white ">Life span: {card?.lifeSpan !== 0 ? convertTime(parseInt(card?.lifeSpan)) : "Unlimited"}</p>
+                <p className="box text-white ">Life span: {card?.lifeSpan != 0 ? convertTime(parseInt(card?.lifeSpan)) : "Unlimited"}</p>
                 <p className="box row-start-auto row-end-auto col-start-1 col-end-3 text-white">{checkPurchase ? convertTime(remainingTime) : "not buy yet"} </p>
             </div>
             {checkPurchase ?

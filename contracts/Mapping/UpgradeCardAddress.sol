@@ -40,10 +40,10 @@ contract upgradeCard {
     }
 
     function showPurchaseDate(address _userAddress, uint _id) public view returns (uint) {
-        if (checkPurchase(_userAddress, _id)) {
+        if (!checkPurchase(_userAddress, _id)) {
             return 0;
         }
-        return cards[_id].user[msg.sender].purchaseDate;
+        return cards[_id].user[_userAddress].purchaseDate;
     }
 
     ///
