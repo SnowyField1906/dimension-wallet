@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from "./components/Navigation/Navigation";
 
-import Welcome from './containers/Welcome';
-import Wallet from "./containers/Wallet";
-import Transaction from "./containers/Transaction";
-import Upgrade from "./containers/Upgrade";
-import About from "./containers/About";
+import Welcome from './pages/Welcome';
+import Wallet from "./pages/Wallet";
+import Transaction from "./pages/Transaction";
+import Upgrade from "./pages/Upgrade";
+import About from "./pages/About";
 
 function App() {
   return (

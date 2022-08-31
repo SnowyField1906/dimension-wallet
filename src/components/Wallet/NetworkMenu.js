@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
@@ -6,7 +5,6 @@ function NetworkMenu({network, setNetwork}) {
     const classNames = (...classes) => {
         return classes.filter(Boolean).join(' ')
     }
-
 
     return (
         <Menu as="div" className="relative inline-block text-left">
@@ -18,7 +16,6 @@ function NetworkMenu({network, setNetwork}) {
             </div>
 
             <Transition
-                as={Fragment}
                 enter="transition ease-out duration-100"
                 enterFrom="transform opacity-0 scale-95"
                 enterTo="transform opacity-100 scale-100"

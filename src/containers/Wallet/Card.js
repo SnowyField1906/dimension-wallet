@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Balance from './Balance'
+import Balance from '../../components/Wallet/Balance'
 
 function Card(props) {
     const background = "bg-card" + props.id;

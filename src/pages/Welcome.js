@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useEthers } from "@usedapp/core";
 import { Navigate } from 'react-router-dom';
-import { Dialog } from '@headlessui/react'
 
 import Guide from '../components/Welcome/Guide';
 
@@ -22,6 +21,7 @@ function Welcome() {
     return (
         <div className='h-full flex justify-items-stretch items-center'>
             <Guide modal={modal} handleModal={handleModal} />
+
             <div className='w-[60%] ml-[10%] mr-[50%] place-self-center'>
                 <p className='text-xl text-white'>
                     Next gen Ethereum payments

@@ -5,7 +5,7 @@ import { useEthers, useEtherBalance, Mainnet, Kovan, Ropsten, Rinkeby, Goerli } 
 import Account from '../components/Wallet/AccountAddress';
 import NetworkMenu from '../components/Wallet/NetworkMenu';
 import Balance from '../components/Wallet/Balance';
-import Card from '../components/Wallet/Card';
+import Card from '../containers/Wallet/Card';
 
 function Wallet() {
     const { deactivate, account } = useEthers();

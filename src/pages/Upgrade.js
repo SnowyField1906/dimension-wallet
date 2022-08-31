@@ -5,8 +5,8 @@ import { useEthers } from "@usedapp/core";
 
 import { useTypes, useContractMethod } from "../contracts/hooks";
 
-import Admin from '../components/Upgrade/Admin';
-import Cards from '../components/Upgrade/Cards';
+import Admin from '../containers/Upgrade/Admin';
+import Cards from '../containers/Upgrade/Cards';
 
 function Upgrade() {
     const { account } = useEthers();
@@ -48,9 +48,8 @@ function Upgrade() {
         <div className='grid h-full justify-items-center'>
             <div className='flex justify-between pt-[7%] w-[80%] '>
                 <p className='text-2xl text-center text-white'>Cards on chain: {parseInt(types)}</p>
-                {/* {user && <p className='text-2xl text-center text-white'>Your cards: {parseInt(user?.numberOfCards)}</p>} */}
             </div>
-            <div className='flex justify-between w-[80%] h-[20rem] snap-mandatory snap-x overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
+            <div className='flex justify-between w-[80%] snap-mandatory snap-x overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
                 {types && [...Array(parseInt(types))].map((_, index) => (<Cards account={account} index={index} />))}
             </div>
             <p className='text-slate-400 text-xs justify-self-end mr-[10%]'>*to make you have fully access to all cards for testing, actual prices are all <strong>0 ETH</strong> + gas price</p>
