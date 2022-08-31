@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useEthers } from "@usedapp/core";
 
 
-import { useCards, useUsers, useNumberOfTypes, useCheckPurchase, useShowRemainingDate, useCheckExistedUser, useContractMethod } from "../contracts/hooks";
+import { useTypes, useContractMethod } from "../contracts/hooks";
 
 import Admin from '../components/Upgrade/Admin';
 import Cards from '../components/Upgrade/Cards';
@@ -11,9 +11,7 @@ import Cards from '../components/Upgrade/Cards';
 function Upgrade() {
     const { account } = useEthers();
 
-    const numberOfTypes = useNumberOfTypes();
-
-    const user = useUsers(account);
+    const types = useTypes();
 
     const { state: stateAddCard, send: addCard } = useContractMethod("addCard");
     const { state: stateExpriedCard, send: expriedCard } = useContractMethod("expriedCard");
@@ -23,7 +21,8 @@ function Upgrade() {
 
     const [addCardState, setAddCardState] = useState({
         name: "",
-        price: ""
+        price: "",
+        lifeSpan: "",
     });
 
     const [removeCardState, setRemoveCardState] = useState();
@@ -33,7 +32,7 @@ function Upgrade() {
     }
 
     const handleAddCardAction = () => {
-        addCard(addCardState.name, addCardState.price);
+        addCard(addCardState.name, addCardState.price, addCardState.lifeSpan);
     }
 
     const handleRemoveCardAction = () => {
@@ -48,11 +47,11 @@ function Upgrade() {
     return (
         <div className='grid h-full justify-items-center'>
             <div className='flex justify-between pt-[7%] w-[80%] '>
-                <p className='text-2xl text-center text-white'>Cards on chain: {parseInt(numberOfTypes)}</p>
-                {user && <p className='text-2xl text-center text-white'>Your cards: {parseInt(user?.numberOfCards)}</p>}
+                <p className='text-2xl text-center text-white'>Cards on chain: {parseInt(types)}</p>
+                {/* {user && <p className='text-2xl text-center text-white'>Your cards: {parseInt(user?.numberOfCards)}</p>} */}
             </div>
             <div className='flex justify-between w-[80%] h-[20rem] snap-mandatory snap-x overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
-                {numberOfTypes && [...Array(parseInt(numberOfTypes))].map((_, index) => (<Cards index={index} />))}
+                {types && [...Array(parseInt(types))].map((_, index) => (<Cards account={account} index={index} />))}
             </div>
             <p className='text-slate-400 text-xs justify-self-end mr-[10%]'>*to make you have fully access to all cards for testing, actual prices are all <strong>0 ETH</strong> + gas price</p>
 
@@ -64,6 +63,9 @@ function Upgrade() {
                             className='mx-5 form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-gray-800 bg-clip-padding border-solid border-2 border-gray-500 rounded transition ease-in-out m-0 focus:text-white focus:bg-gray-800 focus:border-blue-500 focus:outline-none'
                         />
                         <input type="text" name="price" value={addCardState.price} onChange={handleAddCardState}
+                            className='mx-5 form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-gray-800 bg-clip-padding border-solid border-2 border-gray-500 rounded transition ease-in-out m-0 focus:text-white focus:bg-gray-800 focus:border-blue-500 focus:outline-none'
+                        />
+                        <input type="text" name="lifeSpan" value={addCardState.lifeSpan} onChange={handleAddCardState}
                             className='mx-5 form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-gray-800 bg-clip-padding border-solid border-2 border-gray-500 rounded transition ease-in-out m-0 focus:text-white focus:bg-gray-800 focus:border-blue-500 focus:outline-none'
                         />
                         <button onClick={handleAddCardAction} className='text-white text-3xl'>Add Card</button>

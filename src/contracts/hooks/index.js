@@ -17,59 +17,35 @@ export function useCards(index) {
   return cards;
 }
 
-export function useUsers(address) {
-  const { value: users } = useCall({
-    contract: contract,
-    method: "users",
-    args: [address],
-  }) ?? {};
-  return users;
-}
-
-export function useCheckExistedUser(address) {
-  const { value: checkExistedUser } = useCall({
-    contract: contract,
-    method: "checkExistedUser",
-    args: [address],
-  }) ?? {};
-  return checkExistedUser;
-}
-
-export function useNumberOfTypes() {
-  const { value: numberOfTypes } = useCall({
-    contract: contract,
-    method: "numberOfTypes",
-    args: [],
-  }) ?? {};
-  return numberOfTypes;
-}
-
-export function useCheckPurchase(index) {
+export function useCheckPurchase(address, index) {
   const { value: checkPurchase } = useCall({
     contract: contract,
     method: "checkPurchase",
-    args: [index],
+    args: [address, index],
   }) ?? {};
   return checkPurchase;
 }
 
-export function useShowRemainingTime(index) {
-  const { value: showRemainingTime } = useCall({
+export function useShowPurchaseDate(address, index) {
+  const { value: showPurchaseDate } = useCall({
     contract: contract,
-    method: "showRemainingTime",
-    args: [index],
+    method: "showPurchaseDate",
+    args: [address, index],
   }) ?? {};
-  return showRemainingTime;
+  return showPurchaseDate;
 }
 
+export function useTypes() {
+  const { value: types } = useCall({
+    contract: contract,
+    method: "types",
+    args: [],
+  }) ?? {};
+  return types;
+}
 
 export function useAddCard() {
   const { state, send } = useContractFunction(contract, "addCard", {});
-  return { state, send };
-}
-
-export function useExpriedCard() {
-  const { state, send } = useContractFunction(contract, "expriedCard", {});
   return { state, send };
 }
 

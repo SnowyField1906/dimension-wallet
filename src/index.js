@@ -13,16 +13,18 @@ const config = {
     [Mainnet.chainId]: getDefaultProvider('mainnet'),
     [Ropsten.chainId]: getDefaultProvider('ropsten'),
     [Kovan.chainId]: getDefaultProvider('kovan'),
-    [Rinkeby.chainId]: getDefaultProvider('rinkeby'),
+    [Rinkeby.chainId]: 'https://rinkeby.infura.io/v3/5b62b841c8c9436d8cce850e719a7014',
     [Goerli.chainId]: getDefaultProvider('goerli')
   },
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <React.StrictMode>
   <DAppProvider config={config}>
     <App />
-  </DAppProvider>
+    </DAppProvider>
+    </React.StrictMode>
 );
 
 reportWebVitals();
