@@ -23,7 +23,7 @@ function Cards({ account, index }) {
 
     const [remainingTime, setRemainingTime] = useState(null);
 	setTimeout(() => {
-		setRemainingTime(parseInt(card?.lifeSpan) + parseInt(showPurchaseDate) - Math.floor(Date.now() / 1000));
+		setRemainingTime(parseInt(card?.lifeSpan) + parseInt(showPurchaseDate) - 30 - Math.floor(Date.now() / 1000));
 	}, 1000);
 
 	function convertTime(time) {
