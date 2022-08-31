@@ -49,9 +49,11 @@ function Cards({ account, index }) {
     }
 
     return (
-        <div onClick={handleModal} className="item grid m-1 mb-5 p-2 rounded-xl ring-transparent hover:ring-4 hover:ring-indigo-600 focus:ring-indigo-600">
+        <div className="item grid m-1 mb-5 p-2 rounded-xl ring-transparent hover:ring-4 hover:ring-indigo-600 focus:ring-indigo-600">
             <Detail id={index} modal={modal} handleModal={handleModal} card={card} checkPurchase={checkPurchase} showPurchaseDate={showPurchaseDate} />
-            <Card id={index} />
+            <div onClick={handleModal}>
+                <Card id={index} />
+            </div>
 
             <div className="grid grid-cols-2 grid-rows-2 gap-1 place-items-center">
                 <p className="box text-white">Name: {card?.name}</p>
@@ -61,9 +63,9 @@ function Cards({ account, index }) {
             </div>
 
             {checkPurchase ?
-                <button className="rounded-2xl px-2 py-1 ml-5 text-xl text-white focus:ring-2s" onClick={() => removeCard(account, index)}>Remove</button>
+                <button className="rounded-2xl py-1 text-xl text-white border-2 hover:bg-slate-900" onClick={() => removeCard(account, index)}>Remove</button>
                 :
-                <button className="rounded-2xl px-2 py-1 ml-5 text-xl text-white" onClick={() => purchaseCard(account, index)}>Purchase</button>}
+                <button className="rounded-2xl py-1 text-xl text-white border-2" onClick={() => purchaseCard(account, index)}>Purchase</button>}
         </div>
     )
 }
