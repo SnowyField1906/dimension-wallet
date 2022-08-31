@@ -63,9 +63,9 @@ function Cards({ account, index }) {
             </div>
 
             {checkPurchase ?
-                <button className="rounded-2xl py-1 text-xl text-white border-2 hover:bg-slate-900" onClick={() => removeCard(account, index)}>Remove</button>
+                <button className="rounded-2xl py-1 text-xl text-white border-2 hover:bg-black" onClick={() => removeCard(account, index)}>Remove</button>
                 :
-                <button className="rounded-2xl py-1 text-xl text-white border-2" onClick={() => purchaseCard(account, index)}>Purchase</button>}
+                <button className="rounded-2xl py-1 text-xl text-white border-2 hover:bg-black" onClick={() => purchaseCard(account, index)}>Purchase</button>}
         </div>
     )
 }
