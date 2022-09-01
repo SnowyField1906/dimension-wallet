@@ -1,6 +1,7 @@
 import { React, useState } from 'react'
 import { Navigate } from 'react-router-dom';
 import { useEthers, useEtherBalance, Mainnet, Kovan, Ropsten, Rinkeby, Goerli } from "@usedapp/core";
+import { useShowUsing, useSwitchCard } from '../contracts/hooks';
 
 import Account from '../components/Wallet/AccountAddress';
 import NetworkMenu from '../components/Wallet/NetworkMenu';
@@ -19,6 +20,7 @@ function Wallet() {
     };
 
     const [network, setNetwork] = useState(null);
+    const showUsing = useShowUsing(account);
 
     if (!account) {
         return (
@@ -31,7 +33,7 @@ function Wallet() {
 
             <div className="flex justify-center place-items-center mt-32">
                 <div className='absolute left-20'>
-                <Card account={account} balance={balance} network={network} id={1} />
+                <Card account={account} balance={balance} network={network} id={showUsing} />
 
                 </div>
                 <div className='grid absolute left-[50%]'>

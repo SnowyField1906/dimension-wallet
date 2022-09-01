@@ -35,6 +35,15 @@ export function useShowPurchaseDate(address, index) {
   return showPurchaseDate;
 }
 
+export function useShowUsing(address) {
+  const { value: showUsing } = useCall({
+    contract: contract,
+    method: "showUsing",
+    args: [address],
+  }) ?? {};
+  return showUsing;
+}
+
 export function useTypes() {
   const { value: types } = useCall({
     contract: contract,
@@ -44,8 +53,14 @@ export function useTypes() {
   return types;
 }
 
+
 export function useAddCard() {
   const { state, send } = useContractFunction(contract, "addCard", {});
+  return { state, send };
+}
+
+export function useDeleteCard() {
+  const { state, send } = useContractFunction(contract, "deleteCard", {});
   return { state, send };
 }
 
@@ -56,6 +71,11 @@ export function usePurchaseCard() {
 
 export function useRemoveCard() {
   const { state, send } = useContractFunction(contract, "removeCard", {});
+  return { state, send };
+}
+
+export function useSwitchCard() {
+  const { state, send } = useContractFunction(contract, "switchCard", {});
   return { state, send };
 }
 

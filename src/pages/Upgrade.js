@@ -47,7 +47,8 @@ function Upgrade() {
     return (
         <div className='grid h-full justify-items-center'>
             <div className='flex justify-between pt-[7%] w-[80%] '>
-                <p className='text-2xl text-center text-white'>Cards on chain: {parseInt(types)}</p>
+                <p className='text-2xl text-center text-white self-end'>Cards on chain: {parseInt(types)}</p>
+                <p className='text-slate-400 text-xs justify-self-end self-end'>*click to see cards' details</p>
             </div>
             <div className='flex justify-between w-[80%] snap-mandatory snap-x overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
                 {types && [...Array(parseInt(types))].map((_, index) => (<Cards account={account} index={index} />))}

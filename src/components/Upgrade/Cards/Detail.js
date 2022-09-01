@@ -3,16 +3,7 @@ import { Transition, Dialog } from "@headlessui/react"
 import Card from "../../../containers/Wallet/Card";
 
 export default function Detail(props) {
-	function convertTime(time) {
-		var hours = Math.floor(time / 3600);
-		var minutes = Math.floor((time - (hours * 3600)) / 60);
-		var seconds = time - (hours * 3600) - (minutes * 60);
 
-		if (hours < 10) { hours = "0" + hours }
-		if (minutes < 10) { minutes = "0" + minutes }
-		if (seconds < 10) { seconds = "0" + seconds }
-		return hours + ':' + minutes + ':' + seconds
-	}
 	return (
 		<Transition appear show={props.modal}>
 			<Dialog as="div" className="relative z-10" onClose={props.handleModal}>
@@ -72,7 +63,7 @@ export default function Detail(props) {
 													Life span
 												</td>
 												<td class="text-sm text-white font-light px-6 py-4 whitespace-nowrap">
-													{props.card?.lifeSpan != 0 ? convertTime(parseInt(props.card?.lifeSpan)) : "Unlimited"}
+													{props.card?.lifeSpan != 0 ? Math.floor((parseInt(props.card?.lifeSpan) / 86400)) + " day(s)" : "Unlimited"}
 												</td>
 
 											</tr>

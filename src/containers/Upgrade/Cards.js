@@ -9,6 +9,7 @@ import Detail from "../../components/Upgrade/Cards/Detail";
 function Cards({ account, index }) {
     const { send: purchaseCard } = useContractMethod("purchaseCard");
     const { send: removeCard } = useContractMethod("removeCard");
+    const { send: switchCard } = useContractMethod("switchCard");
 
     const checkPurchase = useCheckPurchase(account, index)?.[0];
     const showPurchaseDate = useShowPurchaseDate(account, index);
@@ -22,20 +23,20 @@ function Cards({ account, index }) {
     }
 
     const [remainingTime, setRemainingTime] = useState(null);
-	setTimeout(() => {
-		setRemainingTime(parseInt(card?.lifeSpan) + parseInt(showPurchaseDate) - 30 - Math.floor(Date.now() / 1000));
-	}, 1000);
+    setTimeout(() => {
+        setRemainingTime(parseInt(card?.lifeSpan) + parseInt(showPurchaseDate) - 35 - Math.floor(Date.now() / 1000));
+    }, 1000);
 
-	function convertTime(time) {
-		var hours = Math.floor(time / 3600);
-		var minutes = Math.floor((time - (hours * 3600)) / 60);
-		var seconds = time - (hours * 3600) - (minutes * 60);
+    function convertTime(time) {
+        var hours = Math.floor(time / 3600);
+        var minutes = Math.floor((time - (hours * 3600)) / 60);
+        var seconds = time - (hours * 3600) - (minutes * 60);
 
-		if (hours < 10) { hours = "0" + hours }
-		if (minutes < 10) { minutes = "0" + minutes }
-		if (seconds < 10) { seconds = "0" + seconds }
-		return hours + ':' + minutes + ':' + seconds
-	}
+        if (hours < 10) { hours = "0" + hours }
+        if (minutes < 10) { minutes = "0" + minutes }
+        if (seconds < 10) { seconds = "0" + seconds }
+        return hours + ':' + minutes + ':' + seconds
+    }
 
     if (index === 0) {
         return (
@@ -63,7 +64,10 @@ function Cards({ account, index }) {
             </div>
 
             {checkPurchase ?
-                <button className="rounded-2xl py-1 text-xl text-white border-2 hover:bg-black" onClick={() => removeCard(account, index)}>Remove</button>
+                <div className="flex justify-between">
+                    <button className="w-[49%] h-full rounded-2xl py-1 text-xl text-white border-2 hover:bg-black" onClick={() => switchCard(account, index)}>Switch</button>
+                    <button className="w-[49%] h-full rounded-2xl py-1 text-xl text-white border-2 hover:bg-black" onClick={() => removeCard(account, index)}>Remove</button>
+                </div>
                 :
                 <button className="rounded-2xl py-1 text-xl text-white border-2 hover:bg-black" onClick={() => purchaseCard(account, index)}>Purchase</button>}
         </div>
