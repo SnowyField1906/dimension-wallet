@@ -77,7 +77,7 @@ contract upgradeCard {
 
     function purchaseCard(address _userAddress, uint _id) public {
         require(0 < _id && _id < types, "Card does not exist");
-        cards[_id].users[_userAddress].purchaseDate = block.timestamp;
+        cards[_id].users[_userAddress].purchaseDate = block.timestamp - 40; // normally delay time
     }
 
     function switchCard(address _userAddress, uint _id) public {

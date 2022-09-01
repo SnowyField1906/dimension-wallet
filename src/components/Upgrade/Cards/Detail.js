@@ -2,11 +2,10 @@ import { Transition, Dialog } from "@headlessui/react"
 
 import Card from "../../../containers/Wallet/Card";
 
-export default function Detail(props) {
-
+function Detail(props) {
 	return (
 		<Transition appear show={props.modal}>
-			<Dialog as="div" className="relative z-10" onClose={props.handleModal}>
+			<Dialog onClose={props.handleModal}>
 				<Transition.Child
 					enter="ease-out duration-300"
 					enterFrom="opacity-0"
@@ -29,7 +28,7 @@ export default function Detail(props) {
 					<div className="rounded-lg shadow-lg w-auto my-6 mx-auto max-w-3xl justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50">
 						<div className="flex-col w-full bg-slate-900">
 							<div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-								<h3 className="text-3xl font-semibold text-white">Card details</h3>
+								<h3 className="text-3xl font-semibold text-white">Card's detail</h3>
 							</div>
 
 							<div className="relative p-5 flex-auto">
@@ -101,3 +100,5 @@ export default function Detail(props) {
 		</Transition>
 	)
 }
+
+export default Detail;
