@@ -45,7 +45,7 @@ export default function Guide({ modal, handleModal }) {
 									3. Get free testnet Ethereum from testnet faucets such as <a href="https://rinkebyfaucet.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">rinkebyfaucet.com</a>.
 								</p>
 								<blockquote className="border-l-2 border-slate-400 ml-5 pl-2 my-4 text-slate-400 text-lg leading-relaxed">
-									You can use any testnet network since they all have faucets to acquire free testnet Ethereum, however I advise utilizing the <strong>Rinkeby network</strong>, otherwise, you won't be able to use <strong>Upgrade Card</strong>.
+									You can use any testnet network since they all have faucets to acquire free testnet Ethereum. However I advise utilizing the <strong>Rinkeby network</strong>, otherwise, you won't be able to use <strong>Upgrade Card</strong>.
 								</blockquote>
 								<p className="my-4 text-slate-300 text-lg leading-relaxed">
 									4. Enjoy my services by connecting your wallet to the website.
