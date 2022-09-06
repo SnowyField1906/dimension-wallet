@@ -7,6 +7,7 @@ import Account from '../components/Wallet/AccountAddress';
 import NetworkMenu from '../components/Wallet/NetworkMenu';
 import Balance from '../components/Wallet/Balance';
 import Card from '../containers/Wallet/Card';
+import Carousel from '../containers/Wallet/Carousel';
 
 function Wallet() {
     const { deactivate, account } = useEthers();
@@ -27,14 +28,12 @@ function Wallet() {
             <Navigate to="/Dimension-Wallet/" />
         )
     }
-    
+
     return (
         <div className='h-full grid justify-center place-items-center p'>
-
             <div className="flex justify-center place-items-center mt-32">
                 <div className='absolute left-20'>
-                <Card account={account} balance={balance} network={network} id={showUsing} />
-
+                    <Card account={account} balance={balance} network={network} id={showUsing} />
                 </div>
                 <div className='grid absolute left-[50%]'>
                     <Account account={account} />
@@ -56,8 +55,6 @@ function Wallet() {
                     }
 
                 </div>
-
-
 
             </div>
             <div>

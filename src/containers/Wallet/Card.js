@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Balance from '../../components/Wallet/Balance'
 
 function Card(props) {
