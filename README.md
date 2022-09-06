@@ -10,6 +10,11 @@
   - Contract address: `0x42A0c18da1C96a0E5c437b05Bd63b7fec1527AE2`.
   - My address (owner's contract address): `0x71A7464FA7b0FDEf51745cD04efcBE4F1484CE4c`.
 
+## Upcoming features:
+- More card's types beside Discount card: Event card, Charity card,...
+- Lottery feature.
+- Transactions' history feature and Discount card's effect will be applied.
+
 ## Home page:
 ![](https://i.imgur.com/BfVLyp7.gif)
 
@@ -21,3 +26,4 @@
 
 ## Multi-chain transaction:
 ![](https://i.imgur.com/jlcB4li.png)
+
