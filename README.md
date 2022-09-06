@@ -13,7 +13,8 @@
 ## Upcoming features:
 - More card's types beside Discount card: Event card, Charity card,...
 - Lottery feature.
-- Transactions' history feature and Discount card's effect will be applied.
+- Transactions' history feature.
+- Discount card's effect will be applied, it means cards will use true prices instead of 0 ETH for all.
 
 ## Home page:
 ![](https://i.imgur.com/BfVLyp7.gif)
