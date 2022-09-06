@@ -3,7 +3,7 @@
 
 ### My first full-stack decentralized application built on Rinkeby test network (Ethereum):
 - Front-end: ReactJS, TailwindCSS.
-- Back-end: Solidity, useDApp, ethers.js.
+- Back-end: Solidity (Remix IDE), useDApp, ethers.js.
   - Solidity functions:
     - Public: `cards`, `checkPurchase`, `showPurchaseDate`, `showUsing`, `types`, `purchaseCard`, `removeCard`, `switchCard`.
     - Admin only: `addCard`, `deleteCard`.
