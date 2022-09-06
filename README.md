@@ -2,13 +2,13 @@
 # Dimension Wallet
 
 ### My first full-stack decentralized application built on Rinkeby test network (Ethereum):
-- Front-end: ReactJS, TailwindCSS
-- Back-end: Solidity, useDApp, ethers.js
+- Front-end: ReactJS, TailwindCSS.
+- Back-end: Solidity, useDApp, ethers.js.
   - Solidity functions:
     - Public: `cards`, `checkPurchase`, `showPurchaseDate`, `showUsing`, `types`, `purchaseCard`, `removeCard`, `switchCard`.
     - Admin only: `addCard`, `deleteCard`.
-  - Contract address: `0x42A0c18da1C96a0E5c437b05Bd63b7fec1527AE2`
-  - My address (owner's contract address): `0x71A7464FA7b0FDEf51745cD04efcBE4F1484CE4c`
+  - Contract address: `0x42A0c18da1C96a0E5c437b05Bd63b7fec1527AE2`.
+  - My address (owner's contract address): `0x71A7464FA7b0FDEf51745cD04efcBE4F1484CE4c`.
 
 ## Home page:
 ![](https://i.imgur.com/BfVLyp7.gif)
