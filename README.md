@@ -1,3 +1,4 @@
+[![wakatime](https://wakatime.com/badge/user/30595099-02b3-44c9-9553-bfedf73678b0/project/9f07721d-4f8a-4599-9cfe-3621ea323490.svg?style=for-the-badge)](https://wakatime.com/badge/user/30595099-02b3-44c9-9553-bfedf73678b0/project/9f07721d-4f8a-4599-9cfe-3621ea323490)
 
 # Dimension Wallet
 
